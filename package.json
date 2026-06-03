@@ -17,6 +17,10 @@
     "prettier:write": "pnpm dlx prettier . --write",
     "prepare": "pnpm build"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pixelicc/mowojang-cli"
+  },
   "dependencies": {
     "mowojang": "0.4.5"
   },
