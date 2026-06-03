@@ -38,7 +38,6 @@ Commands:
 Options:
   --debug                       Show debug messages
   --no-validate                 Disable input validation
-  --validate                    Enable input validation
   --base-url <url>              Use a custom API base URL
   --fallback                    Enable fallback host retry on connection errors
   --output <path>               Write buffer output to a file (only for skin-buffer/cape-buffer)
