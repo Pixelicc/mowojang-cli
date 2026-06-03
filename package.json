@@ -21,6 +21,12 @@
     "type": "git",
     "url": "https://github.com/Pixelicc/mowojang-cli"
   },
+  "keywords": [
+    "Mowojang",
+    "CLI"
+  ],
+  "author": "Pixelic",
+  "license": "MIT",
   "dependencies": {
     "mowojang": "0.4.5"
   },
