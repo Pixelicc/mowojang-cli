@@ -43,7 +43,7 @@ Options:
   --debug                       Show debug messages
   --no-validate                 Disable input validation
   --base-url <url>              Use a custom API base URL
-  --fallback                    Enable fallback host retry on connection errors
+  --fallback                    Enable fallback to mowojang.seraph.si if mowojang.matdoes.dev is down
   --output <path>               Write buffer output to a file (only for skin-buffer/cape-buffer)
   -h, --help                    Show this help message
 ```
