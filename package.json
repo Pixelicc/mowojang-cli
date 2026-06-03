@@ -13,6 +13,8 @@
   "scripts": {
     "build": "pnpm tsc",
     "test" : "pnpm build && pnpm i -g .",
+    "prettier:check": "pnpm dlx prettier . --check",
+    "prettier:write": "pnpm dlx prettier . --write",
     "prepare": "pnpm build"
   },
   "dependencies": {
