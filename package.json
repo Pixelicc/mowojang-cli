@@ -1,6 +1,6 @@
 {
   "name": "mowojang-cli",
-  "version": "0.4.5-dev.1",
+  "version": "0.4.5",
   "description": "CLI Wrapper for the mowojang npm package.",
   "type": "module",
   "bin": {
