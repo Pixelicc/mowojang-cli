@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "build": "pnpm tsc",
-    "test" : "pnpm build && pnpm i -g .",
+    "test": "pnpm build && pnpm i -g .",
     "prettier:check": "pnpm dlx prettier . --check",
     "prettier:write": "pnpm dlx prettier . --write",
     "prepare": "pnpm build"
@@ -28,7 +28,7 @@
   "author": "Pixelic",
   "license": "MIT",
   "dependencies": {
-    "mowojang": "0.4.6"
+    "mowojang": "0.4.7"
   },
   "devDependencies": {
     "@types/node": "^25.9.1",
