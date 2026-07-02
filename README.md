@@ -12,15 +12,17 @@
 
 ## Usage
 
+`mowojang help`
+or
 `mowojang-cli help`
 
 ```text
 mowojang/mowojang-cli
 
 Usage:
-  mowojang-cli <command> [args] [options]
-  or
   mowojang <command> [args] [options]
+  or
+  mowojang-cli <command> [args] [options]
 
 Commands:
   uuid <username>               Get the UUID for a username
