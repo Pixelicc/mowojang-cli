@@ -28,7 +28,7 @@
   "author": "Pixelic",
   "license": "MIT",
   "dependencies": {
-    "mowojang": "0.4.7"
+    "mowojang": "0.4.8"
   },
   "devDependencies": {
     "@types/node": "^25.9.1",
