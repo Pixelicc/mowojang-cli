@@ -3,6 +3,8 @@
 ![NPM Version](https://img.shields.io/npm/v/mowojang-cli?label=NPM)
 ![NPM Downloads](https://img.shields.io/npm/dm/mowojang-cli?label=Downloads)
 ![NPM License](https://img.shields.io/npm/l/mowojang-cli?label=License)
+![Publish Size](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fpackagephobia.com%2Fv2%2Fapi.json%3Fp%3Dmowojang-cli&query=%24.publish.pretty&label=Publish%20Size)
+![Install Size](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fpackagephobia.com%2Fv2%2Fapi.json%3Fp%3Dmowojang-cli&query=%24.install.pretty&label=Install%20Size)
 
 ## Install
 
