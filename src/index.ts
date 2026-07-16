@@ -209,11 +209,11 @@ try {
       const [type, value] = arg;
       if (!type || !value) throw new Error("Usage: validate <player|username> <value>");
       if (type === "player") {
-        printJson({ value, valid: validate.player(value) });
+        print(String(validate.player(value)));
       } else if (type === "uuid") {
-        printJson({ value, valid: validate.UUID(value) });
+        print(String(validate.UUID(value)));
       } else if (type === "username") {
-        printJson({ value, valid: validate.username(value) });
+        print(String(validate.username(value)));
       } else {
         throw new Error("Validation type must be 'player' or 'username'.");
       }
@@ -223,9 +223,9 @@ try {
       const [action, value] = arg;
       if (!action || !value) throw new Error("Usage: utils <dash|undash> <uuid>");
       if (action === "dash") {
-        printJson({ input: value, output: utils.dashUUID(value) });
+        print(String(utils.dashUUID(value)));
       } else if (action === "undash") {
-        printJson({ input: value, output: utils.undashUUID(value) });
+        print(String(utils.undashUUID(value)));
       } else {
         throw new Error("Utils action must be 'dash' or 'undash'.");
       }
