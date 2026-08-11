@@ -33,12 +33,12 @@ jobs:
             echo "needed=true" >> "$GITHUB_OUTPUT"
           fi
       - uses: pnpm/action-setup@v6
-        if: steps.check.outputs.needed == 'true'
+        if: true
         with:
           version: 11
-          run_install: false
+          run_install: true
       - uses: actions/setup-node@v6
-        if: steps.check.outputs.needed == 'true'
+        if: true
         with:
           node-version: "26"
           cache: "pnpm"
