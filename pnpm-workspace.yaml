@@ -1,4 +1,4 @@
 allowBuilds:
   esbuild: true
 minimumReleaseAgeExclude:
-  - mowojang@0.7.2 || 0.8.0
+  - mowojang@0.7.2
