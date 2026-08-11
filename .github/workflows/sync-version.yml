@@ -52,7 +52,7 @@ jobs:
         if: steps.check.outputs.needed == 'true'
         run: pnpm install --no-frozen-lockfile
       - name: Commit Bump
-        if: steps.check.outputs.needed == 'true'
+        if: false
         run: |
           NEW="${{ steps.latest.outputs.version }}"
           git config user.name "github-actions[bot]"
@@ -61,7 +61,7 @@ jobs:
           git commit -m "Bumped Mowojang to v${NEW}"
           git push
       - name: Create Release
-        if: steps.check.outputs.needed == 'true'
+        if: false
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
