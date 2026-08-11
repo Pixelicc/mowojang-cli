@@ -66,3 +66,8 @@ jobs:
         run: |
           NEW="${{ steps.latest.outputs.version }}"
           gh release create "v${NEW}" --title "v${NEW}" --generate-notes
+      - name: Publish Package
+        if: steps.check.outputs.needed == 'true'
+        run: pnpm publish --no-git-checks --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
