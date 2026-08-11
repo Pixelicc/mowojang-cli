@@ -69,4 +69,4 @@ jobs:
           gh release create "v${NEW}" --title "v${NEW}" --generate-notes
       - name: Publish Package
         if: true
-        run: npm publish --no-git-checks --provenance
+        run: pnpm publish --no-git-checks --provenance
