@@ -68,5 +68,5 @@ jobs:
           NEW="${{ steps.latest.outputs.version }}"
           gh release create "v${NEW}" --title "v${NEW}" --generate-notes
       - name: Publish Package
-        if: steps.check.outputs.needed == 'true'
+        if: true
         run: npm publish --no-git-checks --provenance
