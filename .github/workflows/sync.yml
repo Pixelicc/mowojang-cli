@@ -33,12 +33,12 @@ jobs:
             echo "needed=true" >> "$GITHUB_OUTPUT"
           fi
       - uses: pnpm/action-setup@v6
-        if: true
+        if: steps.check.outputs.needed == 'true'
         with:
           version: 11
           run_install: true
       - uses: actions/setup-node@v6
-        if: true
+        if: steps.check.outputs.needed == 'true'
         with:
           node-version: "26"
           cache: "pnpm"
@@ -52,7 +52,7 @@ jobs:
         if: steps.check.outputs.needed == 'true'
         run: pnpm install --no-frozen-lockfile
       - name: Commit Bump
-        if: false
+        if: steps.check.outputs.needed == 'true'
         run: |
           NEW="${{ steps.latest.outputs.version }}"
           git config user.name "github-actions[bot]"
@@ -61,7 +61,7 @@ jobs:
           git commit -m "Bumped Mowojang to v${NEW}"
           git push
       - name: Create Release
-        if: false
+        if: steps.check.outputs.needed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
