@@ -1,4 +1,4 @@
-name: Sync Version CI (Mowojang)
+name: Sync Version CI/CD (Mowojang)
 
 on:
   schedule:
