@@ -1,0 +1,67 @@
+name: Sync Version CI (Mowojang)
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get latest Mowojang Version
+        id: latest
+        run: |
+          VERSION=$(curl -fsSL https://registry.npmjs.org/mowojang/latest | jq -r '.version')
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+      - name: Get current Mowojang Version
+        id: current
+        run: |
+          VERSION=$(jq -r '.version' package.json)
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+      - name: Check if Mowojang Versions are inequal
+        id: check
+        run: |
+          if [ "${{ steps.latest.outputs.version }}" = "${{ steps.current.outputs.version }}" ]; then
+            echo "needed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "needed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: pnpm/action-setup@v6
+        if: steps.check.outputs.needed == 'true'
+        with:
+          run_install: false
+      - uses: actions/setup-node@v6
+        if: steps.check.outputs.needed == 'true'
+        with:
+          node-version: "26"
+          cache: "pnpm"
+      - name: Update package.json
+        if: steps.check.outputs.needed == 'true'
+        run: |
+          NEW="${{ steps.latest.outputs.version }}"
+          jq --arg v "$NEW" '.version = $v | .dependencies.mowojang = $v' package.json > package.json.tmp
+          mv package.json.tmp package.json
+      - name: Install dependencies
+        if: steps.check.outputs.needed == 'true'
+        run: pnpm install
+      - name: Commit Bump
+        if: steps.check.outputs.needed == 'true'
+        run: |
+          NEW="${{ steps.latest.outputs.version }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add package.json pnpm-lock.yaml
+          git commit -m "chore: bump mowojang to v${NEW}"
+          git push
+      - name: Create Release
+        if: steps.check.outputs.needed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          NEW="${{ steps.latest.outputs.version }}"
+          gh release create "v${NEW}" --title "v${NEW}" --generate-notes
