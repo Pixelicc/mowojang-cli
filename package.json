@@ -1,6 +1,6 @@
 {
   "name": "mowojang-cli",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "CLI Wrapper for the mowojang npm package.",
   "type": "module",
   "bin": {
@@ -28,7 +28,7 @@
   "author": "Pixelic",
   "license": "MIT",
   "dependencies": {
-    "mowojang": "0.8.1"
+    "mowojang": "0.8.2"
   },
   "devDependencies": {
     "@types/node": "^26.1.1",
