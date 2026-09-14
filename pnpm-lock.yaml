@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       mowojang:
-        specifier: 0.8.2
+        specifier: ''
         version: 0.8.2(debug@4.4.3)
     devDependencies:
       '@types/node':
